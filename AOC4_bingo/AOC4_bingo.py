@@ -12,7 +12,7 @@ def read_bingo_boards(filename: str)->list:
 # get the bingo callouts as separate variable
 def read_num_callouts(filename: str)->list:
     with open(filename, "r") as file:
-        bingoNums = [bingoNums.strip() for bingoNums in file][0] # first line has rand integers list
+        bingoNums = [bingoNums.strip() for bingoNums in file][0] # first line has random integers list
     return bingoNums.split(',')
 
 # Convert the puzzle input into desired format
