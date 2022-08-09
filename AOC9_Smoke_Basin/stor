@@ -1,0 +1,33 @@
+
+    # if y == 0: # top corners
+    #     if x == 0:  # top left corner
+    #         return aal.value if ((aal.value) < ((aal.down) and (aal.right))) is True else False
+    #     elif x == aal.inputWidthIndex:  # top right corner
+    #         return aal.value if ((aal.value) < ((aal.down) and (aal.left))) is True else False
+
+    # if y == aal.inputHeightIndex: # bottom corners
+    #     if x == 0: # bottom left corner
+    #         return aal.value if ((aal.value) < ((aal.up) and (aal.right))) is True else False
+    #     elif x == aal.inputWidthIndex:  # bottom right corner
+    #         return aal.value if ((aal.value) < ((aal.up) and (aal.left))) is True else False
+
+    # if ((y != ((0) or (aal.inputHeightIndex))) and (x == aal.inputWidthIndex)) is True: # right edge
+    #     return aal.value if ((aal.value) < ((aal.up) and (aal.down) and (aal.left))) is True else False
+    
+    # if ((y != ((0) or (aal.inputHeightIndex)) and (x == 0))) is True: # left edge
+    #     return aal.value if ((aal.value) < ((aal.up) and (aal.down) and (aal.right))) is True else False
+
+    # if ((y == 0) and (x != ((0) or (aal.inputWidthIndex)))) is True: # top edge excluding corners
+    #     if ((aal.value) < ((aal.left) and (aal.right) and (aal.down))) is True:
+    #         return aal.value
+    #     else:
+    #         return False
+   
+    # if ((y == aal.inputHeightIndex) and (x != 0) or (aal.inputWidthIndex)) is True: # bottom edge excluding corners
+    #     return aal.value if ((aal.value) < ((aal.left) and (aal.right) and (aal.up))) is True else False
+
+    # if ((aal.value) < ((aal.up) and (aal.down) and (aal.left) and (aal.right))) is True: # not on edge or corner, must be in middle
+    #     return aal.value
+    # else:       
+    #     return False
+     
