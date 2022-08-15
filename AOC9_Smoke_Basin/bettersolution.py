@@ -7,6 +7,7 @@
 #           run $ python bettersolution.py <name of inputfile>
 #           returns answer to the terminal
 
+from re import L
 import sys
 
 def main(filename):
@@ -16,17 +17,19 @@ def main(filename):
         lines = [list(line) for line in INFILE.read().strip().split()]
         input = [[int(number) for number in line] for line in lines]
 
-    answer = find_low_points(input)
-    print(answer)
+    answer, lowPointsIndices = find_low_points(input)
+    print("answer = %d" % answer)
+    print(lowPointsIndices)
 
 
 def find_low_points(input):
     rowLen = len(input[0])
     colLen = len(input)
-    print('rowlen = %d, colLen = %d' % (rowLen,colLen))
+    # print('rowlen = %d, colLen = %d' % (rowLen,colLen))
     directionsY = (1,0,-1,0)
     directionsX = (0,1,0,-1)
     lowPoints = []
+    lowPointsIndices = []
     currVals = []
     # iterate thru all rows and collumns
     for y in range(len(input)):
@@ -37,7 +40,7 @@ def find_low_points(input):
                 vertVal = y + directionsY[d]
                 horizVal = x + directionsX[d]
             
-                print(f"y={y},x={x},vertVal={vertVal},horizVal={horizVal}")
+                # print(f"y={y},x={x},vertVal={vertVal},horizVal={horizVal}")
 
                 # Check surrounding points are in grid 
                 if 0 <= horizVal <= rowLen-1 and 0 <= vertVal <= colLen-1:
@@ -45,14 +48,34 @@ def find_low_points(input):
 
             if all(i > input[y][x] for i in currVals):
                 lowPoints.append(input[y][x])
-                print(lowPoints)
+                lowPointsIndices.append((y,x))
+                # print(lowPoints)
 
-            print()
+            # print()
             currVals.clear()
 
     # calculate answer
-    return sum(list(map(lambda x: x+1, lowPoints)))
-    
+    return sum(list(map(lambda x: x+1, lowPoints))), lowPointsIndices
+
+#  def find_list_of_basin_sizes(input, lowPointsIndices):
+#     currBasin = [] # stores indices of points inside current basin
+#     currVal = None
+
+#     # each low point starts a new basin
+#     # for lowPoint in lowPointsIndices:
+#     y, x = lowPointsIndices[2]
+
+#         # check left of point on curr row
+#         if x != 0:
+#             dis2leftside = 
+
+
+#             while currVal != 9:
+#                 for 
+
+
+
+
 
 if __name__ == "__main__":
     main(sys.argv[1])
