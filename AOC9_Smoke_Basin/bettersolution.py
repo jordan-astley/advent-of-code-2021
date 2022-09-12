@@ -7,7 +7,6 @@
 #           run $ python bettersolution.py <name of inputfile>
 #           returns answer to the terminal
 
-from re import L
 import sys
 
 def main(filename):
