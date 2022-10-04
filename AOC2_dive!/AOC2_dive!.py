@@ -5,8 +5,6 @@
 #             'down 8',
 #             'forward 2']
 
-from turtle import forward
-
 
 def read_vals(filename: str)->list:
     commands = []
